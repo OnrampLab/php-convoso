@@ -1,0 +1,27 @@
+{
+    "name": "onramplab/convoso",
+    "require": {
+        "php": "^7.1.3",
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "OnrampLab\\Convoso\\": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.0-dev"
+        },
+        "laravel": {
+            "providers": [
+                "OnrampLab\\Convoso\\ConvosoServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "prefer-stable": true,
+    "minimum-stability": "dev"
+}
