@@ -2,12 +2,11 @@
 
 namespace OnrampLab\Convoso\Api;
 
-use Tests\TestCase;
-
 use GuzzleHttp\Client as HttpClient;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
+use PHPUnit\Framework\TestCase;
 
 class LeadTest extends TestCase
 {

@@ -2,7 +2,8 @@
 
 namespace OnrampLab\Convoso\Api;
 
-use Tests\TestCase;
+use OnrampLab\Convoso\Api\Client;
+use PHPUnit\Framework\TestCase;
 
 class ClientTest extends TestCase
 {
