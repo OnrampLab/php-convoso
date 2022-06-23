@@ -3,16 +3,18 @@
 namespace OnrampLab\Convoso\Api;
 
 use Exception;
+use Psr\Http\Message\ResponseInterface;
+
 class Lead
 {
-    protected $client;
+    protected Client $client;
 
     public function __construct(Client $client)
     {
         $this->client = $client;
     }
 
-    public function add($leadInfo): array
+    public function add(array $leadInfo): array
     {
         $payload = [
             'query' => [
@@ -45,7 +47,7 @@ class Lead
         return $result;
     }
 
-    public function search(array $query) {
+    public function search(array $query): array {
         $url = $this->client->getEndPoint('leads/search');
 
         $payload = [
@@ -73,7 +75,7 @@ class Lead
         return $result;
     }
 
-    protected function parseResultFromResponse($response): array
+    protected function parseResultFromResponse(ResponseInterface $response): array
     {
         $body = json_decode($response->getBody(), true);
 

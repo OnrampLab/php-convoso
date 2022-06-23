@@ -3,13 +3,14 @@
 namespace OnrampLab\Convoso\Api;
 
 use GuzzleHttp\Client as HttpClient;
+use Psr\Http\Message\ResponseInterface;
 
 class Client
 {
-    public $lead;
+    public Lead $lead;
 
-    protected $authToken;
-    protected $httpClient;
+    protected string $authToken;
+    protected HttpClient $httpClient;
 
     public static function create(string $authToken, HttpClient $httpClient = null): Client
     {
@@ -26,18 +27,21 @@ class Client
         return $client;
     }
 
-    public function setHttpClient(HttpClient $httpClient)
+    public function setHttpClient(HttpClient $httpClient): void
     {
         $this->httpClient = $httpClient;
     }
 
-    public function getEndPoint($action = ''): string
+    public function getEndPoint(string $action = ''): string
     {
         return "https://api.convoso.com/v1/$action";
     }
 
-    public function request(string $method, string $url, array $payload = null, array $options = null)
+    public function request(string $method, string $url, array $payload = null, array $options = []): ResponseInterface
     {
-        return $this->httpClient->request($method, $url, $payload, $options);
+        $options = array_merge([
+            'json' => $payload,
+        ], $options);
+        return $this->httpClient->request($method, $url, $options);
     }
 }
