@@ -47,7 +47,8 @@ class Lead
         return $result;
     }
 
-    public function search(array $query): array {
+    public function search(array $query): array
+    {
         $url = $this->client->getEndPoint('leads/search');
 
         $payload = [
@@ -61,7 +62,8 @@ class Lead
         return $result;
     }
 
-    public function update(array $leadInfo): array {
+    public function update(array $leadInfo): array
+    {
         $url = $this->client->getEndPoint('leads/update');
 
         $payload = [

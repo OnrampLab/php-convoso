@@ -1,7 +1,9 @@
 <?php
-declare(strict_types = 1);
+
 namespace OnrampLab\Convoso;
+
 use Illuminate\Support\ServiceProvider;
+
 class ConvosoServiceProvider extends ServiceProvider
 {
     /**
